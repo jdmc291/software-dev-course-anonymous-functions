@@ -29,7 +29,7 @@ const todos = [
   // ============================================
   // 🔍 Tasks
   // ============================================
-  
+  // ****************************************************************************************
   /*
   🔹 Task 1: Filter Incomplete Tasks
   
@@ -38,8 +38,17 @@ const todos = [
   2. Use an anonymous function as the callback.
   3. Return only the tasks that are not completed.
   */
-  
-  
+  function completedCheck(todo){
+
+    return todo.completed === false;
+
+  }
+
+  function myFilterFunction(){
+    
+    return todos.filter(completedCheck);
+  }
+  // ****************************************************************************************
   /*
   🔹 Task 2: Sort Tasks by Priority
   
@@ -48,8 +57,11 @@ const todos = [
   2. Use an anonymous function as the comparison function.
   3. Sort tasks in ascending order of priority (1 = highest).
   */
-  
-  
+  function mySortingFunction(){
+
+    return todos.sort((a,b) => a.priority - b.priority );
+  }
+  // ****************************************************************************************
   /*
   🔹 Task 3: Mark All Tasks as Completed
   
@@ -59,8 +71,17 @@ const todos = [
   3. Change the `completed` property to `true` for every task.
   */
   
-  
+ // My Answer
+ function myChangePropertyFunction(){
+    return todos.map((todo) => {todo.completed = true;
+      return {
+        ...todo,
+      }
+    })
+  }
+
   /*
+  // ****************************************************************************************
   🔹 Task 4: Combine Filters
   
   Step-by-Step:
@@ -69,13 +90,21 @@ const todos = [
   3. Use method chaining to perform both steps together.
   */
   
+
+
+  function myCombineFilterFunction()
+  {
+    return todos.filter(completedCheck).sort((a,b) => a.priority - b.priority);
+  }
   
+  // ****************************************************************************************
+
   // ============================================
   // 🧪 Console Test Your Work
   // ============================================
   
-  // console.log("Incomplete Tasks:", ...);
-  // console.log("Sorted by Priority:", ...);
-  // console.log("All Tasks Completed:", ...);
-  // console.log("Sorted Incomplete Tasks:", ...);
+  console.log("Incomplete Tasks:", myFilterFunction());
+  console.log("Sorted by Priority:", mySortingFunction());
+  console.log("All Tasks Completed:", myChangePropertyFunction());
+  console.log("Sorted Incomplete Tasks:", myCombineFilterFunction());
   
